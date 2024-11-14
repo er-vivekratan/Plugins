@@ -1,0 +1,37 @@
+<input id="dd" placeholder="D">
+<input id="mm" placeholder="M">
+<input id="yy" placeholder="Y">
+<input id="resulft">
+
+<input type="button" id="result" onclick="week()" value="Result">
+
+<style>
+
+input{
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    font-size: 21;
+    text-align: center;
+}
+
+input[id="yy"],input[type="button"]{
+    height: 40px;
+    width: 100px;
+}
+
+</style>
+<script>
+
+function week(){
+    var d = document.getElementById("dd").value;
+    var m = document.getElementById("mm").value;
+    var y = document.getElementById("yy").value;
+
+    result = d + m + y;
+
+    document.getElementById('result') = d;
+}
+
+
+</script>

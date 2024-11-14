@@ -1,0 +1,93 @@
+<input type="text" id="display">
+<input type="button" onclick="result()" value="Result">
+<br>
+<label>The Year is :</label>
+<input type="button" id="leap" value="This is">
+
+<script>
+
+// Months
+
+const Months = [
+    {
+        Name: "Month",
+        Age: "00",
+    },
+    {
+        Name: "January",
+        Age: "31"
+    },
+    {
+        Name: "February",
+        Age: "28"
+    },
+    {
+        Name: "March",
+        Age: "31"
+    },
+    {
+        Name: "April",
+        Age: "30"
+    },
+    {
+        Name: "May",
+        Age: "31"
+    },
+    {
+        Name: "June",
+        Age: "30"
+    },
+    {
+        Name: "July",
+        Age: "31"
+    },
+    {
+        Name: "August",
+        Age: "31"
+    },
+    {
+        Name: "September",
+        Age: "30"
+    },
+    {
+        Name: "October",
+        Age: "31"
+    },
+    {
+        Name: "November",
+        Age: "30"
+    },
+    {
+        Name: "December",
+        Age: "31"
+    }
+];
+
+const Weeks = [
+    { 
+        D0: "WeekDay",
+        D1: "Monday",
+        D2: "Tuesday",
+        D3: "Wednesday",
+        D4: "Thursday",
+        D5: "Friday",
+        D6: "Saturday",
+        D7: "Sunday"
+    },
+];
+
+const Week = Weeks[0];
+const Month = Months[0];
+
+function result(){
+    year = document.getElementById('display').value;
+
+    if(year % 4 == 0){
+        document.getElementById('leap').value = 'Leap Year';
+    }
+    else{
+        document.getElementById('leap').value = 'Not Leap';
+    }
+}
+
+</script>

@@ -1,0 +1,21 @@
+<head>
+    <script src="QRGenerator.js"></script>
+</head>
+
+<input type="text" id="qr-input">
+<input type="radio" onclick="genQR()">
+<label>Pay with QR Code</label>
+<img src="" id="qr-output">
+
+<style>
+
+</style>
+
+<script>
+    function genQR(){
+        var input = document.getElementById('qr-input');
+        var output = document.getElementById('qr-output');
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + input.value;
+        output.src = url;
+}
+</script>

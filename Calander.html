@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        .calendar {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .calendar th, .calendar td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .calendar th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="Month" value="11">
+    <input type="button" onclick="createCalendar(year, month)" value="Create">
+    <div id="january"></div>
+    <div id="february"></div>
+    
+    <script>
+        
+        function createCalendar(year, month) {
+            const date = new Date(year, month, 1);
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            let calendar = '<table class="calendar"><tr>';
+            
+            // Create table header
+            days.forEach(day => {
+                calendar += `<th>${day}</th>`;
+            });
+            calendar += '</tr><tr>';
+            
+            // Fill initial empty cells
+            for (let i = 0; i < date.getDay(); i++) {
+                calendar += '<td></td>';
+            }
+            
+            // Fill the days
+            while (date.getMonth() === month) {
+                calendar += `<td>${date.getDate()}</td>`;
+                if (date.getDay() === 6) { // Sunday, start new row
+                    calendar += '</tr><tr>';
+                }
+                date.setDate(date.getDate() + 1);
+            }
+            
+            // Fill remaining empty cells
+            while (date.getDay() !== 0) {
+                calendar += '<td></td>';
+                date.setDate(date.getDate() + 1);
+            }
+            
+            calendar += '</tr></table>';
+            return calendar;
+        }
+        
+        year = 1582;
+        month = document.getElementById('Month').value;
+
+        if(month == 0){
+            Monthv = 'January'
+        }
+        else if(month == 7){
+            Monthv = 'August'
+        }
+        else if(month == 8){
+            Monthv = 'September'
+        }
+        else if(month == 9){
+            Monthv = 'October'
+        }
+        else if(month == 10){
+            Monthv = 'November'
+        }
+
+        document.getElementById('january').innerHTML = Monthv + createCalendar(year, month);
+
+        
+    </script>
+</body>
+</html>

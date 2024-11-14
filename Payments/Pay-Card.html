@@ -1,0 +1,91 @@
+<script>
+
+const employees = [
+    { name: "Alice", age: 30, position: "Developer" },
+    { name: "Bob", age: 25, position: "Designer" },
+    { name: "Charlie", age: 35, position: "Manager" }
+];
+
+const firstEmployee = employees[0];
+const thirdEmployee = employees[2];
+
+console.log(firstEmployee); // Outputs: { name: 'Alice', age: 30, position: 'Developer' }
+console.log(thirdEmployee); // Outputs: { name: 'Charlie', age: 35, position: 'Manager' }
+
+
+</script>
+
+<img width="100%" src="https://cdn.dribbble.com/users/2153376/screenshots/17065240/media/f3ca358983c4cb9b030f52b55fcb1bde.jpg?compress=1&resize=400x300&vertical=top">
+
+
+<html>
+    <head></head>
+
+<body>
+
+<div class="card-frame">
+    <h1>Card Number</h1>
+    <div>
+        <img src="" width="50px">
+        <input type="number" maxlength="4" paytype="card" id="card-value-1" oninput="autoMove(this, 'card-value-2', null)"> -
+        <input type="number" maxlength="4" paytype="card" id="card-value-2" oninput="autoMove(this, 'card-value-3', 'card-value-1')"> -
+        <input type="number" maxlength="4" paytype="card" id="card-value-3" oninput="autoMove(this, 'card-value-4', 'card-value-2')"> -
+        <input type="number" maxlength="4" paytype="card" id="card-value-4" oninput="autoMove(this, 'card-value-1', 'card-value-3')">
+    </div>
+    <div>
+        <h1 style="float: left;">CVV Number</h1>
+        <input type="number" maxlength="3" childof="Card-Number" id="cvv">
+    </div>
+    <div>
+        <h1>Expiry Date</h1>
+        <input type="number" maxlength="2" class="expiry" id="expiry-mm" oninput="autoMove(this, 'expiry-yy', null)">&nbsp/&nbsp
+        <input type="number" maxlength="2" class="expiry" id="expiry-yy" oninput="autoMove(this, null, 'expiry-mm')">
+    </div>
+</div>
+<style>
+
+input[paytype="card"]{
+    width: 60px;
+}
+input[type="number"]{
+    height: 40px;
+    font-size: 21;
+    outline: none;
+    padding: 2.5px;
+}
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input[id="cvv"]{
+    width: 60px;
+}
+input[class="expiry"]{
+    width: 40px;
+}
+
+</style>
+
+<script>
+
+function autoMove(current, nextFieldID, prevFieldID) {
+            if (current.value.length >= current.maxLength) {
+                if (nextFieldID) {
+                    document.getElementById(nextFieldID).focus();
+                }
+            }
+            else if (current.value.length === 0 && prevFieldID) {
+                document.getElementById(prevFieldID).focus();
+            }
+}
+
+</script>
+</body>
+</html>
+
